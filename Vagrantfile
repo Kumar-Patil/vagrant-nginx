@@ -5,7 +5,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
+ config.env.enable #enable the plugin
+ config.vm.provision "file", source: "", destination: "/home/vagrant"
   config.vm.define "centos-6.6", autostart: false do |v|
     v.vm.box = "puppetlabs/centos-6.6-64-puppet"
     v.vm.hostname = "centos-6-6"
